@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+<body>
+<div layout:fragment="content">
+   <div class="container mt-5 ">
+	
+	<div class="text text-primary text-center"><h1>Bienvenu</h1> <h1 sec:authentication="name"></h1></div>
+</div>
+</div>
+</body>
+</html>

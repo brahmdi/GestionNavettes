@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template">
+<head>
+<meta charset="UTF-8">
+<title>Save Navettes</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container">
+			<div class="row d-flex justify-content-center mt-3 ">
+				<div class="col-md-12"></div>
+				<div
+					class="w-50 mx-auto border border-2 border-primary p-4 rounded mt-5 px-5">
+					<form   th:object="${navettes}" th:action="@{/PostNavettes}" method="post">
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label>date de début</label> <input type="date"
+										class="form-control date col-4 mb-4 w-3" th:field="*{date_debut}" >
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label>date de fin</label> <input type="date"
+										class="form-control date col-4 mb-4 w-3" th:field="*{date_fin}" >
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label>heure de départ</label> <input type="time"
+										class="form-control time col-4 mb-4 w-3" th:field="*{h_dep}" >
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label>heure d'arrivée</label> <input type="time"
+										class="form-control time col-4 mb-4 w-3" th:field="*{h_ar}"  >
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<label>ville de départ </label> <input type="text"
+										class="form-control col-4 mb-4 w-3" th:field="*{v_dep}" >
+								</div>
+							</div>
+							<div class="col">
+								<div class="form-group">
+									<label>ville d'arrivée</label> <input type="text"
+										class="form-control col-4 mb-4 w-3" th:field="*{v_ar}" >
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label>Description</label> <input type="text"
+								class="form-control col-4 mb-4 w-3" th:field="*{desc}" >
+						</div>
+						<div class="form-group">
+							<label>Le nombre d'abonnés voulus</label> <input type="text"
+								class="form-control col-4 mb-4 w-3" th:field="*{nbAbonne}" >
+						</div>
+						
+						<div class="form-group text-center ">
+							<input type="submit" class="btn btn-primary mt-2 w-3"
+								value="Enrigestrer">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

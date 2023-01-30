@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"	
+      layout:decorate="/layouts/_layout">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div layout:fragment="content1">
+
+	<h2 class="alert alert-danger">vous n'avez pas le droit à cette action : 
+								<span sec:authentication="name"></span>
+		</h2>
+	
+</div>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Navettes</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container mt-5 ">
+			<table class="table mt-5 " sec:authorize="hasAnyAuthority('ADMIN')">
+				<thead>
+					<tr>
+						<th>Date debut</th>
+						<th>Date fine</th>
+						<th>heure depart</th>
+						<th>heure arivee</th>
+						<th>ville departe</th>
+						<th>ville arivee</th>
+						<th>Description</th>
+						<th>nombre d'abonne</th>
+					</tr>
+				</thead>
+
+
+				<tbody>
+					<tr th:each="nvt : ${navette}">
+						<td th:text="${nvt.date_debut}"></td>
+						<td th:text="${nvt.date_fin}"></td>
+						<td th:text="${nvt.h_dep}"></td>
+						<td th:text="${nvt.h_ar}"></td>
+						<td th:text="${nvt.v_dep}"></td>
+						<td th:text="${nvt.v_ar}"></td>
+						<td th:text="${nvt.desc}"></td>
+						<td th:text="${nvt.nbAbonne}"></td>
+					</tr>
+				</tbody>
+
+			</table>
+
+			<div class="d-flex justify-content-center">
+				<a class="btn btn-info mt-5 w-25 mx-auto btn-block mb-3"
+					th:href="@{/AddNavette}" sec:authorize="hasAnyAuthority('ADMIN')">Ajouter
+					Navettes</a>
+			</div>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>

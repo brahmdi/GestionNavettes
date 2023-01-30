@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="template"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>abonne</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<div class="container mt-5 ">
+			<div></div>
+			<form class="d-flex w-50 mb-2"   th:action="@{/abonne}" method="get">
+				<input class="form-control me-2" type="search" placeholder="ville de depart"
+					aria-label="Search" name="dep"> <input class="form-control me-2"
+					type="search" placeholder="ville arrivee" aria-label="Search" name="arr" >
+				<button class="btn btn-outline-success" type="submit">Search</button>
+			</form>
+			<table class="table mt-3">
+				<thead>
+					<tr>
+						<th>Date debut</th>
+						<th>Date fine</th>
+						<th>heure depart</th>
+						<th>heure arivee</th>
+						<th>ville departe</th>
+						<th>ville arivee</th>
+						<th>Description</th>
+						<th>nombre d'abonne</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="nvt : ${navette}">
+						<td th:text="${nvt.date_debut}"></td>
+						<td th:text="${nvt.date_fin}"></td>
+						<td th:text="${nvt.h_dep}"></td>
+						<td th:text="${nvt.h_ar}"></td>
+						<td th:text="${nvt.v_dep}"></td>
+						<td th:text="${nvt.v_ar}"></td>
+						<td th:text="${nvt.desc}"></td>
+						<td th:text="${nvt.nbAbonne}"></td>
+						<td><a th:href="@{/postAbonne(idNavette=${nvt.id} )}"><button
+									class="btn btn-outline-primary" type="submit">s'abonner</button></a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+	</div>
+</body>
+</html>
